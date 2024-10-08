@@ -1,0 +1,12 @@
+services:
+  root_me_scoreboard_bot:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    container_name: 'root_me_scoreboard_bot'
+    restart: always
+    environment:
+      - DISCORD_TOKEN
+      - GUILD_ID
+      - ROOTME_API_TOKEN
+

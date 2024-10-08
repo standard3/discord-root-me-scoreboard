@@ -1,0 +1,30 @@
+site_name: Root-me scoreboard Discord bot
+site_description: Documentation for Root-me scoreboard Discord bot
+
+theme:
+  name: material
+  features:
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.action.edit
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.path
+    - navigation.top
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - mkdocstrings
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+nav:
+  - index.md

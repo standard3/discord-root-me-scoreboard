@@ -1,0 +1,23 @@
+name: Docker Runner
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  run:
+    runs-on: self-hosted
+    environment: production
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run Container
+        run: docker compose -f docker/docker-compose.yml -p root_me_scoreboard_bot up -d
+        env:
+          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+          GUILD_ID: ${{ secrets.GUILD_ID }}
+          ROOTME_API_TOKEN: ${{ secrets.ROOTME_API_TOKEN }}
+
+      - name: Cleanup Unused Images
+        run: docker image prune -f

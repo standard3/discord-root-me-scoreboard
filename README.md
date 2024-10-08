@@ -1,61 +1,31 @@
-# ROOT ME scoreboard
+# Root-me Discord scoreboard
 
-Un bot Discord pour afficher le scoreboard de ROOT ME sur un serveur Discord.
+A discord bot that allows to make a private root-me scoreboard
 
-## Installation
+## Features
 
-1. Cloner le dépôt
+To-do
 
-```bash
-git clone https://github.com/LighTend3r/scoreboard_root-me_for_discord.git
+## Deployment
+
+Before deploying somewhere, please create a `.env` file with the filled variables :
+- `DISCORD_TOKEN`: your discord bot token, get it [here](https://discord.com/developers/applications)
+- `GUILD_ID`: your discord server unique identifier, you can get it through developer settings
+- `ROOT_ME_API_KEY`: your personnal account API key, you can get it [here](https://www.root-me.org/?page=preferences)
+
+Deployment is made with Docker. Build the image and run it :
+
+```shell
+$ docker build -t root_me_scoreboard_bot -f docker/Dockerfile .
+$ docker run -d --name root_me_scoreboard_bot root_me_scoreboard_bot
 ```
 
-2. créer un fichier `.env` à la racine du projet (Un template est fourni dans le fichier `.env.template`)
+Or with `docker compose` :
 
-```bash
-touch .env
+```shell
+$ docker compose -f docker/docker-compose.yml -p root_me_scoreboard_bot up -d
 ```
 
-3. Ajouter les variables d'environnement suivantes dans le fichier `.env`
+## Usage
 
-```env
-DISCORD_TOKEN
-ROOT_ME_API_KEY
-GUILD_ID
-```
-
-Le `DISCORD_TOKEN` est le token de votre bot discord, vous pouvez le récupérer sur le [portail développeur Discord](https://discord.com/developers/applications)
-
-Le `ROOT_ME_API_KEY` est la clé d'API de VOTRE compte ROOT ME, vous pouvez la récupérer sur [ROOT ME](https://www.root-me.org/?page=preferences)
-
-Le `GUILD_ID` est l'identifiant de votre serveur Discord, vous pouvez le récupérer en activant le mode développeur sur Discord et en cliquant droit sur votre serveur
-
-4. lancer le docker-compose
-
-```bash
-docker-compose up -d
-```
-
-## Utilisation
-
-`/ping` : Vérifie si le bot est en ligne
-
-`/add_user <pseudo:str | rm_id:int>` : Ajouter un utilisateur à la BDD
-
-`/remove_user <pseudo:str | rm_id:int>` : Supprimer un utilisateur de la BDD
-
-`/profile <pseudo:str | rm_id:int>` : Affiche le profil d'un utilisateur
-
-`/scoreboard [period:str = "all" | force_update:bool = False]` : Affiche le scoreboard des utilisateurs dans la BDD
-
-`/who_solved <name_chall:str | challenge_id:int>` : Affiche les utilisateurs ayant résolu un challenge
-
-`/chall <name:str>` : Affiche tous les chall qui comporte "name" dans leur nom
-
-`/search_profile <pseudo:str>` : Recherche un utilisateur sur ROOT ME
-
-`/help` : Affiche l'aide
-
-
-
-
+To-do
