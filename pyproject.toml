@@ -14,10 +14,12 @@ python = "^3.12"
 discord-py = "^2.4.0"
 python-dotenv = "^1.0.1"
 loguru = "^0.7.2"
+pydantic = "^2.9.2"
 
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
+pytest-asyncio = "^0.24.0"
 poethepoet = "^0.29.0"
 
 
@@ -35,3 +37,7 @@ build-backend = "poetry.core.masonry.api"
 test = "pytest"
 start = "python3 root_me_scoreboard_bot/main.py"
 docs = "mkdocs serve"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
